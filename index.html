@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SplitEasy - Dashboard & My Groups</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-logo">⚡</span>
+        <h2>SplitEasy</h2>
+      </div>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-item active"><span class="icon">📊</span> Dashboard</a>
+        <a href="group-details.html" class="nav-item"><span class="icon">👥</span> My Groups</a>
+        <a href="expense-history.html" class="nav-item"><span class="icon">🕒</span> Activity & History</a>
+        <a href="balances.html" class="nav-item"><span class="icon">⚖️</span> Balances & Settle</a>
+      </nav>
+
+      <div class="sidebar-action">
+        <a href="add-expense.html" class="btn btn-purple btn-full">+ Add Expense</a>
+      </div>
+
+      <div class="sidebar-section">
+        <span class="section-title">MY GROUPS</span>
+        <ul class="group-quicklinks">
+          <li><a href="group-details.html"><span class="bullet"></span> Goa Trip</a></li>
+          <li><a href="group-details.html"><span class="bullet"></span> Flatmates</a></li>
+          <li><a href="group-details.html"><span class="bullet"></span> Birthday Party</a></li>
+        </ul>
+        <a href="create-group.html" class="add-group-link">+ Create Group</a>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="user-profile">
+          <div class="avatar">A</div>
+          <div class="user-meta">
+            <strong>Aarav Sharma</strong>
+            <small>aarav@example.com</small>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="topbar-search">
+          <span class="search-icon">🔍</span>
+          <input type="text" placeholder="Search expenses, groups, members..." />
+        </div>
+        <div class="topbar-actions">
+          <a href="create-group.html" class="btn btn-outline">+ Create Group</a>
+          <a href="add-expense.html" class="btn btn-purple">+ Add Expense</a>
+        </div>
+      </header>
+
+      <div class="page-header">
+        <div>
+          <h1>Good morning, Aarav</h1>
+          <p class="subtitle">Here is the overview of your shared balances.</p>
+        </div>
+      </div>
+
+      <div class="balance-cards-grid">
+        <div class="stat-card positive">
+          <span class="stat-label">You are owed</span>
+          <div class="stat-amount">₹8,420</div>
+          <span class="badge badge-green">3 people owe you</span>
+        </div>
+        <div class="stat-card negative">
+          <span class="stat-label">You owe</span>
+          <div class="stat-amount">₹3,180</div>
+          <span class="badge badge-red">2 pending payments</span>
+        </div>
+        <div class="stat-card primary">
+          <span class="stat-label">Total Group Expenses</span>
+          <div class="stat-amount">₹49,240</div>
+          <span class="badge badge-purple">Across 4 groups</span>
+        </div>
+      </div>
+
+      <div class="content-split-grid">
+        <div class="panel">
+          <div class="panel-header">
+            <h3>Your Groups</h3>
+            <a href="create-group.html" class="link-btn">+ New Group</a>
+          </div>
+          
+          <div class="group-card-list">
+            <a href="group-details.html" class="group-item-card">
+              <div class="group-icon">🏖️</div>
+              <div class="group-info">
+                <h4>Goa Trip</h4>
+                <small>5 members • Last active 2h ago</small>
+              </div>
+              <div class="group-balance text-green">
+                <strong>+₹4,250</strong>
+                <small>you are owed</small>
+              </div>
+            </a>
+
+            <a href="group-details.html" class="group-item-card">
+              <div class="group-icon">🏠</div>
+              <div class="group-info">
+                <h4>Flatmates</h4>
+                <small>3 members • Rent & Groceries</small>
+              </div>
+              <div class="group-balance text-red">
+                <strong>-₹1,740</strong>
+                <small>you owe</small>
+              </div>
+            </a>
+
+            <a href="group-details.html" class="group-item-card">
+              <div class="group-icon">🎂</div>
+              <div class="group-info">
+                <h4>Birthday Party</h4>
+                <small>8 members • Settled last week</small>
+              </div>
+              <div class="group-balance text-muted">
+                <strong>₹0</strong>
+                <small>all settled</small>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <h3>Recent Activity</h3>
+            <a href="expense-history.html" class="link-btn">View All</a>
+          </div>
+          <div class="activity-feed">
+            <div class="activity-item">
+              <div class="act-icon">🍕</div>
+              <div class="act-desc">
+                <strong>Dinner at Thalassa</strong>
+                <small>Paid by Aarav in <em>Goa Trip</em></small>
+              </div>
+              <div class="act-amount">₹3,400</div>
+            </div>
+            <div class="activity-item">
+              <div class="act-icon">⚡</div>
+              <div class="act-desc">
+                <strong>Electricity Bill</strong>
+                <small>Paid by Rohan in <em>Flatmates</em></small>
+              </div>
+              <div class="act-amount">₹1,850</div>
+            </div>
+            <div class="activity-item">
+              <div class="act-icon">🛵</div>
+              <div class="act-desc">
+                <strong>Scooter Rental</strong>
+                <small>Paid by Aman in <em>Goa Trip</em></small>
+              </div>
+              <div class="act-amount">₹2,200</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="app-footer">
+        <div class="footer-links">
+          <span>SplitEasy &copy; 2026</span>
+          <a href="#">About</a>
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+        </div>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
