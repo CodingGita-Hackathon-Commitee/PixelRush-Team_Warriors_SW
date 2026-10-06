@@ -10,9 +10,12 @@
 <body>
   <div class="app-layout">
     <aside class="sidebar">
-      <div class="brand">
-        <span class="brand-logo">⚡</span>
-        <h2>SplitEasy</h2>
+      <div class="brand-container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <div class="brand">
+          <span class="brand-logo">⚡</span>
+          <h2>SplitEasy</h2>
+        </div>
+        <button class="hamburger-btn" aria-label="Menu" style="background: none; border: none; color: white; font-size: 24px; cursor: pointer; display: none;">☰</button>
       </div>
       <nav class="nav-menu">
         <a href="../index.html" class="nav-item"><span class="icon">📊</span> Dashboard</a>
@@ -86,6 +89,18 @@
         document.querySelector('.chip.active')?.classList.remove('active');
         btn.classList.add('active');
       });
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.querySelector('.hamburger-btn');
+      const navMenu = document.querySelector('.nav-menu');
+      if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+          navMenu.classList.toggle('show-mobile');
+        });
+      }
     });
   </script>
 </body>
