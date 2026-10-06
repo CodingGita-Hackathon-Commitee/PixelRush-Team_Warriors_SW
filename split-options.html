@@ -69,5 +69,13 @@
       </div>
     </main>
   </div>
+  <script>
+    document.querySelectorAll('.split-tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelector('.split-tab-btn.active')?.classList.remove('active');
+        btn.classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>

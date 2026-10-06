@@ -88,5 +88,13 @@
       </div>
     </main>
   </div>
+  <script>
+    document.querySelectorAll('.filter-pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelector('.filter-pill.active')?.classList.remove('active');
+        btn.classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
