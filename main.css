@@ -724,6 +724,30 @@ body {
   font-size: 38px;
 }
 
+.qr-standee-container {
+  background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+  padding: 12px;
+  border-radius: 16px;
+  margin: 12px auto;
+  max-width: 240px;
+  text-align: center;
+  border: 1.5px solid rgba(95, 37, 159, 0.2);
+  box-shadow: 0 10px 25px rgba(95, 37, 159, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.qr-standee-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(95, 37, 159, 0.18);
+}
+
+.qr-standee-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}
+
 /* FILTERS & FOOTER */
 .filter-bar {
   display: flex;
