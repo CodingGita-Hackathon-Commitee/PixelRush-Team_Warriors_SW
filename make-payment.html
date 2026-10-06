@@ -5,34 +5,160 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SplitEasy - Settle Up</title>
   <link rel="stylesheet" href="main.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    .qr-container {
-      background: #fff;
-      padding: 1.5rem;
-      border-radius: 12px;
+    .payment-card {
+      max-width: 480px;
       margin: 1.5rem auto;
-      max-width: 200px;
       text-align: center;
+      background: #ffffff;
+      border-radius: var(--radius-lg, 14px);
+      padding: 28px 24px;
+      border: 1px solid var(--border-color, #e2e8f0);
+      box-shadow: var(--shadow-md, 0 10px 25px rgba(0, 0, 0, 0.08));
     }
-    .qr-container img {
+    .payee-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #f3f0ff;
+      color: #5f259f;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .payee-badge .verified-check {
+      background: #5f259f;
+      color: #fff;
+      border-radius: 50%;
+      width: 16px;
+      height: 16px;
+      display: inline-grid;
+      place-items: center;
+      font-size: 10px;
+    }
+    .amount-display {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: #1e293b;
+      margin: 4px 0 2px;
+      letter-spacing: -0.5px;
+    }
+    .amount-subtitle {
+      color: var(--text-muted, #64748b);
+      font-size: 13px;
+      margin-bottom: 1.2rem;
+    }
+    .qr-standee-container {
+      background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+      padding: 12px;
+      border-radius: 16px;
+      margin: 0 auto 1.25rem;
+      max-width: 250px;
+      text-align: center;
+      border: 2px solid rgba(95, 37, 159, 0.15);
+      box-shadow: 0 12px 30px rgba(95, 37, 159, 0.12);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .qr-standee-container:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 36px rgba(95, 37, 159, 0.18);
+    }
+    .qr-standee-container img {
       width: 100%;
       height: auto;
+      border-radius: 10px;
+      display: block;
+    }
+    .upi-id-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      border-radius: 8px;
+      padding: 8px 12px;
+      margin-bottom: 1.2rem;
+      font-size: 13px;
+    }
+    .upi-id-box code {
+      font-weight: 600;
+      color: #1e293b;
+      font-family: monospace;
+    }
+    .copy-btn {
+      background: rgba(95, 37, 159, 0.1);
+      color: #5f259f;
+      border: none;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .copy-btn:hover {
+      background: #5f259f;
+      color: #fff;
     }
     .upi-apps {
       display: flex;
-      gap: 1rem;
+      gap: 0.75rem;
       justify-content: center;
-      margin-bottom: 2rem;
+      margin-bottom: 1.4rem;
+      flex-wrap: wrap;
     }
     .upi-app {
-      padding: 0.8rem 1.5rem;
-      background: #1a1e36;
-      border: 1px solid #333;
+      padding: 0.6rem 1.1rem;
+      background: #ffffff;
+      border: 1px solid var(--border-color, #e2e8f0);
       border-radius: 8px;
-      color: #fff;
+      color: var(--text-main, #1e293b);
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: var(--shadow-sm, 0 2px 8px rgba(0, 0, 0, 0.04));
+      transition: all 0.2s ease;
+    }
+    .upi-app.phonepe {
+      border-color: #5f259f;
+      color: #5f259f;
+      background: rgba(95, 37, 159, 0.04);
+    }
+    .upi-app:hover {
+      background: #6c5ce7;
+      color: #fff;
+      border-color: #6c5ce7;
+      transform: translateY(-1px);
+    }
+    .upi-app.phonepe:hover {
+      background: #5f259f;
+      color: #fff;
+      border-color: #5f259f;
+    }
+    .action-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .toast-msg {
+      display: none;
+      background: #10b981;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      margin-top: 10px;
+      animation: fadeIn 0.2s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -52,29 +178,93 @@
     </aside>
 
     <main class="main-content">
-      <div class="modal-card" style="max-width: 500px; margin: 2rem auto; text-align: center;">
-        <div class="modal-header" style="justify-content: space-between;">
-          <h2>Settle via UPI</h2>
-          <a href="balances.html" class="close-x">&times;</a>
-        </div>
-        <div class="modal-body" style="padding: 2rem;">
-          <p style="color: #94a3b8; margin-bottom: 1rem;">Scan QR code to pay Aarav</p>
-          <div class="qr-container">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=aarav@upi&pn=Aarav&am=1450" alt="UPI QR Code">
+      <div class="modal-card payment-card">
+        <div class="modal-header">
+          <div style="text-align: left;">
+            <h2 style="font-size: 1.4rem; font-weight: 700;">Settle via UPI</h2>
+            <p style="font-size: 13px; color: var(--text-muted);">Instant zero-fee settlement</p>
           </div>
-          <h3 style="font-size: 2rem; margin: 1rem 0;">₹1,450</h3>
-          
-          <p style="color: #94a3b8; margin-bottom: 1rem;">Or pay using installed apps</p>
-          <div class="upi-apps">
-            <a href="#" class="upi-app">GPay</a>
-            <a href="#" class="upi-app">PhonePe</a>
-            <a href="#" class="upi-app">Paytm</a>
+          <a href="balances.html" class="close-x" title="Close">&times;</a>
+        </div>
+
+        <div class="modal-body" style="padding: 0;">
+          <div class="payee-badge">
+            <span class="verified-check">✓</span>
+            Payee: <strong>Ayush Kumar</strong>
           </div>
 
-          <a href="expense-history.html" class="btn btn-purple" style="display: block; width: 100%; text-align: center;">Confirm Payment Sent</a>
+          <div class="amount-display">₹1,450</div>
+          <p class="amount-subtitle">Scan & Pay using PhonePe or any UPI App</p>
+
+          <div class="qr-standee-container">
+            <img src="phonepe-qr.png" alt="PhonePe QR Code - Ayush Kumar" id="payment-qr-img">
+          </div>
+
+          <div class="upi-id-box">
+            <span>UPI ID: <code id="upi-id-text">ayushkumar@phonepe</code></span>
+            <button class="copy-btn" id="copy-btn" onclick="copyUpiId()">Copy</button>
+          </div>
+
+          <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 0.75rem;">Or pay directly with installed app</p>
+          <div class="upi-apps">
+            <a href="upi://pay?pa=ayushkumar@phonepe&pn=Ayush%20Kumar&am=1450&cu=INR" class="upi-app phonepe">
+              <span>🟣</span> PhonePe
+            </a>
+            <a href="upi://pay?pa=ayushkumar@phonepe&pn=Ayush%20Kumar&am=1450&cu=INR" class="upi-app">
+              <span>🔵</span> GPay
+            </a>
+            <a href="upi://pay?pa=ayushkumar@phonepe&pn=Ayush%20Kumar&am=1450&cu=INR" class="upi-app">
+              <span>🔷</span> Paytm
+            </a>
+          </div>
+
+          <div class="action-buttons">
+            <a href="expense-history.html" class="btn btn-purple" style="display: block; width: 100%; text-align: center; padding: 12px; font-weight: 600;">Confirm Payment Sent</a>
+            <a href="balances.html" class="btn btn-outline" style="display: block; width: 100%; text-align: center;">Back to Balances</a>
+          </div>
+
+          <div id="toast" class="toast-msg">UPI ID copied to clipboard!</div>
         </div>
       </div>
     </main>
   </div>
+
+  <script>
+    function copyUpiId() {
+      const upiText = document.getElementById('upi-id-text').innerText;
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(upiText).then(() => {
+          showCopied();
+        }).catch(() => {
+          fallbackCopy(upiText);
+        });
+      } else {
+        fallbackCopy(upiText);
+      }
+    }
+
+    function fallbackCopy(text) {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        showCopied();
+      } catch (err) {}
+      document.body.removeChild(textArea);
+    }
+
+    function showCopied() {
+      const btn = document.getElementById('copy-btn');
+      const toast = document.getElementById('toast');
+      btn.innerText = 'Copied!';
+      toast.style.display = 'block';
+      setTimeout(() => {
+        btn.innerText = 'Copy';
+        toast.style.display = 'none';
+      }, 2500);
+    }
+  </script>
 </body>
 </html>
