@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SplitEasy - Split Options</title>
+  <link rel="stylesheet" href="main.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-logo">⚡</span>
+        <h2>SplitEasy</h2>
+      </div>
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-item"><span class="icon">📊</span> Dashboard</a>
+        <a href="group-details.html" class="nav-item active"><span class="icon">👥</span> My Groups</a>
+        <a href="expense-history.html" class="nav-item"><span class="icon">🕒</span> Activity & History</a>
+        <a href="balances.html" class="nav-item"><span class="icon">⚖️</span> Balances & Settle</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="modal-card large">
+        <div class="modal-header">
+          <h2>Choose How to Split: ₹4,850</h2>
+          <a href="add-expense.html" class="close-x">&times;</a>
+        </div>
+
+        <div class="split-nav">
+          <button class="split-tab-btn active">Split Equally</button>
+          <button class="split-tab-btn">Exact Amounts</button>
+          <button class="split-tab-btn">By Percentage</button>
+        </div>
+
+        <div class="split-live-preview">
+          <div class="split-participant">
+            <input type="checkbox" checked />
+            <div class="avatar sm">A</div>
+            <span>Aarav (You)</span>
+            <strong>₹1,212.50</strong>
+          </div>
+          <div class="split-participant">
+            <input type="checkbox" checked />
+            <div class="avatar sm">AG</div>
+            <span>Aman Gupta</span>
+            <strong>₹1,212.50</strong>
+          </div>
+          <div class="split-participant">
+            <input type="checkbox" checked />
+            <div class="avatar sm">MS</div>
+            <span>Manav Shah</span>
+            <strong>₹1,212.50</strong>
+          </div>
+          <div class="split-participant">
+            <input type="checkbox" checked />
+            <div class="avatar sm">RR</div>
+            <span>Rohan Roy</span>
+            <strong>₹1,212.50</strong>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <a href="add-expense.html" class="btn btn-outline">Back</a>
+          <a href="group-details.html" class="btn btn-purple">Save & Split Expense</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
