@@ -443,6 +443,9 @@ body {
   width: 100%;
   border-collapse: collapse;
   font-size: 14px;
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
 .data-table th,
