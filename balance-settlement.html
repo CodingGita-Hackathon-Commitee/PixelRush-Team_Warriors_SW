@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SplitEasy - Balances & Settle Up</title>
+  <link rel="stylesheet" href="main.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-logo">⚡</span>
+        <h2>SplitEasy</h2>
+      </div>
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-item"><span class="icon">📊</span> Dashboard</a>
+        <a href="group-details.html" class="nav-item"><span class="icon">👥</span> My Groups</a>
+        <a href="expense-history.html" class="nav-item"><span class="icon">🕒</span> Activity & History</a>
+        <a href="balances.html" class="nav-item active"><span class="icon">⚖️</span> Balances & Settle</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-header">
+        <div>
+          <h1>Balances & Settlement</h1>
+          <p class="subtitle">Direct debts calculated with minimal transaction paths.</p>
+        </div>
+        <a href="#qr-modal" class="btn btn-purple">Pay / Settle Debt</a>
+      </div>
+
+      <div class="panel">
+        <h3>Who owes whom in Goa Trip</h3>
+        <div class="settle-list">
+          <div class="settle-row">
+            <div class="debt-info">
+              <strong>Aman Gupta</strong> owes <strong>Aarav</strong>
+            </div>
+            <div class="debt-amount text-red">₹1,450</div>
+            <a href="#qr-modal" class="btn btn-sm btn-outline">Settle UPI</a>
+          </div>
+
+          <div class="settle-row">
+            <div class="debt-info">
+              <strong>Manav Shah</strong> owes <strong>Aarav</strong>
+            </div>
+            <div class="debt-amount text-red">₹2,800</div>
+            <a href="#qr-modal" class="btn btn-sm btn-outline">Settle UPI</a>
+          </div>
+
+          <div class="settle-row">
+            <div class="debt-info">
+              <strong>Rohan Roy</strong> owes <strong>Aman Gupta</strong>
+            </div>
+            <div class="debt-amount text-muted">₹600</div>
+            <span class="badge badge-green">Settled ✓</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- UPI QR Code Modal Overlay -->
+      <div id="qr-modal" class="popup-overlay">
+        <div class="modal-card small" style="text-align: center;">
+          <h3>Make Payment</h3>
+          <p class="subtitle">Settle payment to Aarav via UPI</p>
+          <div class="mock-qr-card">📱</div>
+          <p style="font-size: 13px; color: var(--text-muted);">Scan using Google Pay, PhonePe, or Paytm</p>
+          <div class="modal-actions center">
+            <a href="balances.html" class="btn btn-outline">Cancel</a>
+            <a href="expense-history.html" class="btn btn-purple">Confirm Payment Sent</a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
