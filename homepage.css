@@ -1,0 +1,161 @@
+.sidebar {
+    width: 235px;
+    min-height: 100vh;
+    background: #25233A;
+    color: white;
+    padding: 22px 14px;
+    display: flex;
+    flex-direction: column;
+    font-family: "Inter", sans-serif;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 0 5px 25px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.logo-icon {
+    width: 27px;
+    height: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #6C5CE7;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+.main-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 10px;
+    border-radius: 7px;
+    color: #D5D3E2;
+    font-size: 11px;
+    text-decoration: none;
+}
+
+.nav-item:hover {
+    background: #35324F;
+    color: white;
+}
+
+.nav-item.active {
+    background: #6C5CE7;
+    color: white;
+}
+
+.icon {
+    width: 15px;
+    text-align: center;
+}
+
+.sub-menu {
+    display: flex;
+    flex-direction: column;
+    padding-left: 34px;
+}
+
+.sub-menu a {
+    padding: 6px 0;
+    color: #AAA7BC;
+    font-size: 10px;
+    text-decoration: none;
+}
+
+.sidebar-section {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.sidebar-section h4 {
+    margin: 0 10px 7px;
+    font-size: 9px;
+    color: white;
+}
+
+.group-link,
+.create-group {
+    padding: 7px 10px;
+    color: #D5D3E2;
+    font-size: 10px;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.group-link:hover,
+.create-group:hover {
+    background: #35324F;
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-bottom > a {
+    padding: 7px 10px;
+    color: #D5D3E2;
+    font-size: 10px;
+    text-decoration: none;
+}
+
+.sidebar-bottom > a:hover {
+    background: #35324F;
+}
+
+.user-profile {
+    margin-top: 8px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #36334D;
+    border-radius: 8px;
+}
+
+.user-avatar {
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFE5D8;
+    color: #6C5CE7;
+    border-radius: 50%;
+    font-size: 8px;
+    font-weight: 600;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-info strong {
+    font-size: 9px;
+}
+
+.user-info span {
+    font-size: 7px;
+    color: #AAA7BC;
+}
+
+.dots {
+    margin-left: auto;
+    color: #AAA7BC;
+}
