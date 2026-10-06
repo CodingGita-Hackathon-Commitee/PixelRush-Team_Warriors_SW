@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SplitEasy - Settle Up</title>
+  <link rel="stylesheet" href="main.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .qr-container {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin: 1.5rem auto;
+      max-width: 200px;
+      text-align: center;
+    }
+    .qr-container img {
+      width: 100%;
+      height: auto;
+    }
+    .upi-apps {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .upi-app {
+      padding: 0.8rem 1.5rem;
+      background: #1a1e36;
+      border: 1px solid #333;
+      border-radius: 8px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-logo">⚡</span>
+        <h2>SplitEasy</h2>
+      </div>
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-item"><span class="icon">📊</span> Dashboard</a>
+        <a href="group-details.html" class="nav-item"><span class="icon">👥</span> My Groups</a>
+        <a href="expense-history.html" class="nav-item"><span class="icon">🕒</span> Activity & History</a>
+        <a href="balances.html" class="nav-item active"><span class="icon">⚖️</span> Balances & Settle</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="modal-card" style="max-width: 500px; margin: 2rem auto; text-align: center;">
+        <div class="modal-header" style="justify-content: space-between;">
+          <h2>Settle via UPI</h2>
+          <a href="balances.html" class="close-x">&times;</a>
+        </div>
+        <div class="modal-body" style="padding: 2rem;">
+          <p style="color: #94a3b8; margin-bottom: 1rem;">Scan QR code to pay Aarav</p>
+          <div class="qr-container">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=aarav@upi&pn=Aarav&am=1450" alt="UPI QR Code">
+          </div>
+          <h3 style="font-size: 2rem; margin: 1rem 0;">₹1,450</h3>
+          
+          <p style="color: #94a3b8; margin-bottom: 1rem;">Or pay using installed apps</p>
+          <div class="upi-apps">
+            <a href="#" class="upi-app">GPay</a>
+            <a href="#" class="upi-app">PhonePe</a>
+            <a href="#" class="upi-app">Paytm</a>
+          </div>
+
+          <a href="expense-history.html" class="btn btn-purple" style="display: block; width: 100%; text-align: center;">Confirm Payment Sent</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

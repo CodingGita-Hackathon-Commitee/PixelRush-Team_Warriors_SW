@@ -836,6 +836,8 @@ body {
     padding: 20px;
   }
 
+  .data-table th:nth-child(3),
+  .data-table td:nth-child(3),
   .data-table th:nth-child(4),
   .data-table td:nth-child(4) {
     display: none;
