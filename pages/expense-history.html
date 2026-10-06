@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SplitEasy - Expense History</title>
-  <link rel="stylesheet" href="main.css" />
+  <link rel="stylesheet" href="../css/main.css" />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -15,7 +15,7 @@
         <h2>SplitEasy</h2>
       </div>
       <nav class="nav-menu">
-        <a href="index.html" class="nav-item"><span class="icon">📊</span> Dashboard</a>
+        <a href="../index.html" class="nav-item"><span class="icon">📊</span> Dashboard</a>
         <a href="group-details.html" class="nav-item"><span class="icon">👥</span> My Groups</a>
         <a href="expense-history.html" class="nav-item active"><span class="icon">🕒</span> Activity & History</a>
         <a href="balances.html" class="nav-item"><span class="icon">⚖️</span> Balances & Settle</a>
@@ -93,6 +93,28 @@
       btn.addEventListener('click', () => {
         document.querySelector('.filter-pill.active')?.classList.remove('active');
         btn.classList.add('active');
+        
+        const filterText = btn.textContent.trim().toLowerCase();
+        const rows = document.querySelectorAll('.data-table tbody tr');
+        
+        rows.forEach(row => {
+          const categoryCell = row.cells[2].textContent.trim().toLowerCase();
+          
+          let shouldShow = false;
+          if (filterText === 'all categories') {
+            shouldShow = true;
+          } else if (filterText === 'food & drinks' && categoryCell === 'food') {
+            shouldShow = true;
+          } else if (filterText === 'stay' && categoryCell === 'accommodation') {
+            shouldShow = true;
+          } else if (filterText === 'transport' && categoryCell === 'transport') {
+            shouldShow = true;
+          } else if (filterText === 'settlements' && categoryCell === 'payment') {
+            shouldShow = true;
+          }
+          
+          row.style.display = shouldShow ? '' : 'none';
+        });
       });
     });
   </script>
