@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SplitEasy - Group Details</title>
+  <link rel="stylesheet" href="main.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-logo">⚡</span>
+        <h2>SplitEasy</h2>
+      </div>
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-item"><span class="icon">📊</span> Dashboard</a>
+        <a href="group-details.html" class="nav-item active"><span class="icon">👥</span> My Groups</a>
+        <a href="expense-history.html" class="nav-item"><span class="icon">🕒</span> Activity & History</a>
+        <a href="balances.html" class="nav-item"><span class="icon">⚖️</span> Balances & Settle</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-header group-titlebar">
+        <div>
+          <div class="breadcrumb"><a href="index.html">Dashboard</a> / Groups / Birthday Party</div>
+          <h1>🏖️ Birthday Party</h1>
+          <p class="subtitle">5 Members • Total spent ₹18,450</p>
+        </div>
+        <div class="header-btns">
+          <a href="balances.html" class="btn btn-outline">View Balances</a>
+          <a href="add-expense.html" class="btn btn-purple">+ Add Expense</a>
+        </div>
+      </div>
+
+      <div class="tabs-nav">
+        <a href="group-details.html" class="tab-item active">Overview & Expenses</a>
+        <a href="balances.html" class="tab-item">Balances & Settle</a>
+        <a href="expense-history.html" class="tab-item">Full Timeline</a>
+      </div>
+
+      <div class="content-split-grid">
+        <div class="panel">
+          <div class="panel-header">
+            <h3>Recent Group Expenses</h3>
+            <a href="expense-history.html" class="link-btn">History</a>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Description</th>
+                <th>Payer</th>
+                <th>Amount</th>
+                <th>Your Share</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Beach Villa Stay</strong><br><small>Stay • 04 Oct</small></td>
+                <td>Aarav</td>
+                <td>₹12,000</td>
+                <td class="text-green">+₹9,600</td>
+              </tr>
+              <tr>
+                <td><strong>Dinner at Thalassa</strong><br><small>Food • 05 Oct</small></td>
+                <td>Aman</td>
+                <td>₹3,500</td>
+                <td class="text-red">-₹700</td>
+              </tr>
+              <tr>
+                <td><strong>Fuel & Tolls</strong><br><small>Travel • 05 Oct</small></td>
+                <td>Manav</td>
+                <td>₹2,950</td>
+                <td class="text-red">-₹590</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <h3>Member Balances</h3>
+          </div>
+          <div class="members-balances">
+            <div class="member-row">
+              <div class="avatar sm">A</div>
+              <div class="mem-info">
+                <strong>Aarav (You)</strong>
+                <span class="text-green">Gets back ₹4,250</span>
+              </div>
+            </div>
+            <div class="member-row">
+              <div class="avatar sm">AG</div>
+              <div class="mem-info">
+                <strong>Aman Gupta</strong>
+                <span class="text-red">Owes ₹1,450</span>
+              </div>
+              <a href="balances.html" class="btn-xs">Settle</a>
+            </div>
+            <div class="member-row">
+              <div class="avatar sm">MS</div>
+              <div class="mem-info">
+                <strong>Manav Shah</strong>
+                <span class="text-red">Owes ₹2,800</span>
+              </div>
+              <a href="balances.html" class="btn-xs">Settle</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
